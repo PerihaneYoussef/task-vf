@@ -1,9 +1,7 @@
 steps:
-  # Install dependencies
-  - name: python:3.10-buster
-    entrypoint: pip
-    args: ["install", "kfp"]
-
-  - name: python:3.10-buster
-    entrypoint: python
-    args: ["pipeline.py"]
+  - name: 'europe-west1-docker.pkg.dev/vf-grp-aib-dev-mirror/dockerhub/cloud-builders/git'
+  args: ['clone', '--single-branch', '--branch',
+         '$_BRANCH', '$_REPO_URL',
+         '--depth', '1',
+         '--verbose']
+  id: 'Clone Repository'
